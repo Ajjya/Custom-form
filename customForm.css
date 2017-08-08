@@ -1,0 +1,125 @@
+.ch_ch{
+	width: 16px;
+	height: 17px;
+	background: url(images/ch_ch.png) no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.ch_unch{
+	width: 16px;
+	height: 17px;
+	background: url(images/ch_un.png) no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.radio_ch{
+	width: 16px;
+	height: 17px;
+	display: inline-block;
+	background: url(images/radio_ch.png) no-repeat;
+}
+
+.radio_unch{
+	width: 16px;
+	height: 17px;;
+	display: inline-block;
+	background: url(images/radio_un.png) no-repeat;
+}
+/*select*/
+.customSelect{
+	position: relative;
+	font: 12px 'HelveticaNeueMd';
+}
+
+.select{
+	position: relative;
+	height: 48px;
+	margin-bottom: 10px;
+}
+.s-hidden{
+	display: none;
+}
+
+.styledSelect {
+	font: 12px 'HelveticaNeueMd';
+	color: #1f2e4c;
+	border: 1px solid #e3e3e3;
+	position:relative;
+	top:0;
+	left:0;
+	padding: 8px 12px 7px;
+	text-align: left;
+	overflow: hidden;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+.styledSelect .arr {
+	position: absolute;
+	width: 13px;
+	height: 18px;
+	top: 10px;
+    right: 8px;
+	display: inline-block;
+	background: #ffffff url(images/select_bottom.png) no-repeat;
+}
+
+.options.active {
+	display: block;
+} 
+.options {
+	display:none;
+	position: absolute;
+	top: 30px;
+	right: 0;
+	left: 0;
+	background: #ffffff;
+	border: 1px solid #e3e3e3;
+	color: black;
+	z-index: 1000;
+	margin: 0 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+.options li {
+	margin:0 0;
+	padding:0 10px;
+	/*height: 30px;*/
+	line-height: 30px;
+	color: black;
+	cursor: pointer;
+}
+.options li:hover {
+	background-color: #ececec;
+}
+/*end select*/
+/*file*/
+.customInputFileWrap{
+	margin-bottom: 6px;
+}
+
+.customInputFileWrap:last-child{
+	margin-bottom: 26px;
+}
+
+.customInputFile{
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 10px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.customInputSignature{
+	display: inline-block;
+	vertical-align: middle;
+	color:#828282; 
+	font-family: 'OpenSans'; 
+	font-size: 12px;
+	margin-left: 10px;
+}
