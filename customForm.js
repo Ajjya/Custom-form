@@ -62,6 +62,7 @@
 	}
 
 	Plugin.prototype.CustomCheckBox = function(){
+
         $this = $(this.element);
 		$this.css({display:'none'});
 
@@ -74,9 +75,9 @@
         $imit = $this.next()
 
 		// var obj = this.element;
-		$imit.next().on('click', function(){
+		$imit.on('click', function(){
             $this = $(this).prev();
-            $imit = $this.next();
+            $imit = $(this);
 
 			if($this.attr('checked') == 'checked'){
 				$imit.removeClass('ch_ch').addClass("ch_unch");
@@ -116,12 +117,14 @@
         
 
         // Insert an unordered list after the styled div and also cache the list
+
         var $list = $('<ul />', {
             'class': 'options'
         }).insertAfter($styledSelect);
 
         // Insert a list item into the unordered list for each select option
         for (var i = 0; i < numberOfOptions; i++) {
+
             $('<li />', {
                 text: $this.children('option').eq(i).text(),
                 rel: $this.children('option').eq(i).val()
