@@ -143,6 +143,7 @@
             $('.customSelect .options.active').each(function () {
                 $(this).removeClass('active');
             });
+		$(this).toggleClass('active').next('ul.options').toggleClass('active');
         });
 
         // Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
