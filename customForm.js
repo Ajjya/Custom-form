@@ -137,10 +137,12 @@
         // Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
         $styledSelect.click(function (e) {
             e.stopPropagation();
-            $('div.styledSelect.active').each(function () {
-                $(this).removeClass('active').next('ul.options').removeClass('active');
+             $('.customSelect .styledSelect.active').each(function () {
+                $(this).removeClass('active');
             });
-            $(this).toggleClass('active').next('ul.options').toggleClass('active');
+            $('.customSelect .options.active').each(function () {
+                $(this).removeClass('active');
+            });
         });
 
         // Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
