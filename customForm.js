@@ -21,7 +21,7 @@
         this.init();
     }
 
-    Plugin.prototype.CustomFile = function(){
+    Plugin.prototype.customFile = function(){
 	    $(this.element).hide();
 	    var obj = this.element;
 
@@ -39,52 +39,43 @@
 	    })
 	}
 
-	Plugin.prototype.CustomRadioBox = function(){
-        $this = $(this.element);
+	Plugin.prototype.customRadioBox = function(){
+		$(this.element).css({display:'none'});
 
-		$this.css({display:'none'});
-
-		if($this.attr('checked') == 'checked'){
-			$this.after('<div class="radio_ch"></div>');
+		if($(this.element).attr('checked') == 'checked'){
+			$(this.element).after('<div class="radio_ch"></div>');
 		} else {
-			$this.after('<div class="radio_unch"></div>');
+			$(this.element).after('<div class="radio_unch"></div>');
 		}
 
-		$this.next().on('click', function(event){
-            $this = $(this).prev();
-            $imit = $this.next();
-			$this.trigger('click');
+		var obj = this.element;
 
-			var radioName = $this.attr('name');
+		$(this.element).next().on('click', function(){
+			$(obj).trigger('click');
+
+			var radioName = $(obj).attr('name');
 			$(':radio[name=' + radioName +']').next().removeClass('radio_ch').addClass('radio_unch');
-			$imit.removeClass('radio_unch').addClass('radio_ch');
+			$(this.element).removeClass('radio_unch').addClass('radio_ch');
 		});
 	}
 
-	Plugin.prototype.CustomCheckBox = function(){
+	Plugin.prototype.customCheckBox = function(){
+		$(this.element).css({display:'none'});
 
-        $this = $(this.element);
-		$this.css({display:'none'});
-
-		if($this.attr('checked') == 'checked'){
-			$this.after('<div class="ch_ch"></div>');
+		if($(this.element).attr('checked') == 'checked'){
+			$(this.element).after('<div class="ch_ch"></div>');
 		} else {
-			$this.after('<div class="ch_unch"></div>');
+			$(this.element).after('<div class="ch_unch"></div>');
 		}
 
-        $imit = $this.next()
-
-		// var obj = this.element;
-		$imit.on('click', function(){
-            $this = $(this).prev();
-            $imit = $(this);
-
-			if($this.attr('checked') == 'checked'){
-				$imit.removeClass('ch_ch').addClass("ch_unch");
-				$this.removeAttr('checked');
+		var obj = this.element;
+		$(this.element).next().on('click', function(){
+			if($(obj).attr('checked') == 'checked'){
+				$(this.element).removeClass('ch_ch').addClass("ch_unch");
+				$(obj).removeAttr('checked');
 			} else {
-				$imit.removeClass('ch_unch').addClass("ch_ch");
-				$this.attr('checked', 'checked');
+				$(this.element).removeClass('ch_unch').addClass("ch_ch");
+				$(obj).attr('checked', 'checked');
 			}
 		});
 		
@@ -117,14 +108,12 @@
         
 
         // Insert an unordered list after the styled div and also cache the list
-
         var $list = $('<ul />', {
             'class': 'options'
         }).insertAfter($styledSelect);
 
         // Insert a list item into the unordered list for each select option
         for (var i = 0; i < numberOfOptions; i++) {
-
             $('<li />', {
                 text: $this.children('option').eq(i).text(),
                 rel: $this.children('option').eq(i).val()
@@ -136,19 +125,28 @@
 
         // Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
         $styledSelect.click(function (e) {
+            $this = $(this);
+            $('.customSelect .styledSelect.active').not($this).each(function () {
+                $(this).removeClass('active');
+            });
+            $('.customSelect .options.active').not($this).each(function () {
+                $(this).removeClass('active');
+            });
+            if($styledSelect.hasClass('active')){
+               $styledSelect.removeClass('active');
+               $list.removeClass('active');
+            } else {
+                $styledSelect.addClass('active');
+                $list.addClass('active');
+            }
+
             e.stopPropagation();
-             $('.customSelect .styledSelect.active').each(function () {
-                $(this).removeClass('active');
-            });
-            $('.customSelect .options.active').each(function () {
-                $(this).removeClass('active');
-            });
-		$(this).toggleClass('active').next('ul.options').toggleClass('active');
         });
 
         // Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
         // Updates the select element to have the value of the equivalent option
         $listItems.click(function (e) {
+            if($(this).attr('rel') == 'custom_range') return false;
             e.stopPropagation();
             $styledSelect.removeClass('active');
             $styledSelectInput.text($(this).text());
@@ -164,17 +162,18 @@
             $list.removeClass('active');
         });
 
+        // $this.trigger( "loaded" );
     }
 
     Plugin.prototype.init = function () {
     	if($(this.element).is("select")) {
     		this.CustomSelect();
-		} else if($(this.element).is("input[type='checkbox']")) {
-    		this.CustomCheckBox();
-		} else if($(this.element).is("input[type='radio']")) {
-    		this.CustomRadioBox();
+		} else if($(this.element).attr('type') == 'checkbox') {
+    		this.customCheckBox();
+		} else if($(this.element).is("radio")) {
+    		this.customRadioBox();
 		} else if($(this.element).is("input[type='file']")) {
-    		this.CustomFile();
+    		this.customFile();
 		}
     };
 
