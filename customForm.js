@@ -51,11 +51,18 @@
 		var obj = this.element;
 
 		$(this.element).next().on('click', function(){
-			$(obj).trigger('click');
+            $obj = $(this);
+			// $(obj).trigger('click');
+
+            if($(obj).attr('checked') == 'checked'){
+                $(obj).removeAttr('checked');
+            } else {
+                $(obj).attr('checked', 'checked');
+            }
 
 			var radioName = $(obj).attr('name');
-			$(':radio[name=' + radioName +']').next().removeClass('radio_ch').addClass('radio_unch');
-			$(this.element).removeClass('radio_unch').addClass('radio_ch');
+            $(':radio[name=' + radioName +']').next().removeClass('radio_ch').addClass('radio_unch');
+            $(obj).next().removeClass('radio_unch').addClass('radio_ch');
 		});
 	}
 
@@ -70,11 +77,11 @@
 
 		var obj = this.element;
 		$(this.element).on('click', function(){
+             $(obj).next().toggleClass('ch_unch').toggleClass('ch_ch');
+
 			if($(obj).attr('checked') == 'checked'){
-				$(obj).next().removeClass('ch_ch').addClass("ch_unch");
 				$(obj).removeAttr('checked');
 			} else {
-				$(obj).next().removeClass('ch_unch').addClass("ch_ch");
 				$(obj).attr('checked', 'checked');
 			}
 		});
@@ -170,7 +177,7 @@
     		this.CustomSelect();
 		} else if($(this.element).attr('type') == 'checkbox') {
     		this.customCheckBox();
-		} else if($(this.element).is("radio")) {
+		} else if($(this.element).attr('type') == 'radio') {
     		this.customRadioBox();
 		} else if($(this.element).is("input[type='file']")) {
     		this.customFile();
