@@ -69,12 +69,12 @@
 		}
 
 		var obj = this.element;
-		$(this.element).next().on('click', function(){
+		$(this.element).on('click', function(){
 			if($(obj).attr('checked') == 'checked'){
-				$(this.element).removeClass('ch_ch').addClass("ch_unch");
+				$(obj).next().removeClass('ch_ch').addClass("ch_unch");
 				$(obj).removeAttr('checked');
 			} else {
-				$(this.element).removeClass('ch_unch').addClass("ch_ch");
+				$(obj).next().removeClass('ch_unch').addClass("ch_ch");
 				$(obj).attr('checked', 'checked');
 			}
 		});
