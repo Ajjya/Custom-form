@@ -30,7 +30,6 @@
 /*select*/
 .customSelect{
 	position: relative;
-	font: 12px 'HelveticaNeueMd';
 }
 
 .select{
@@ -43,7 +42,6 @@
 }
 
 .styledSelect {
-	font: 12px 'HelveticaNeueMd';
 	color: #1f2e4c;
 	border: 1px solid #e3e3e3;
 	position:relative;
@@ -61,7 +59,7 @@
 	width: 13px;
 	height: 18px;
 	top: 10px;
-    right: 8px;
+  right: 8px;
 	display: inline-block;
 	background: #ffffff url(images/select_bottom.png) no-repeat;
 }
@@ -87,7 +85,6 @@
 .options li {
 	margin:0 0;
 	padding:0 10px;
-	/*height: 30px;*/
 	line-height: 30px;
 	color: black;
 	cursor: pointer;
@@ -119,7 +116,6 @@
 	display: inline-block;
 	vertical-align: middle;
 	color:#828282; 
-	font-family: 'OpenSans'; 
 	font-size: 12px;
 	margin-left: 10px;
 }
