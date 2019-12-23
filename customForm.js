@@ -99,10 +99,12 @@
         $this.wrap('<div class="customSelect"></div>');
 
         // Insert a styled div to sit over the top of the hidden select element
-        $this.after('<div class="styledSelect"><div class="arr"></div></div>');
+        $this.after('<div class="styledSelect" contentEditable="true"><div class="arr"></div></div>');
 
         // Cache the styled div
         var $styledSelect = $this.next('div.styledSelect');
+	    $styledSelect.css({caretColor: 'transparent'});
+	    
         $styledSelect.append('<div class="styledSelectInput"></div><div class="styledSelectBtn"></div>')
         var $styledSelectInput = $styledSelect.find('.styledSelectInput');
         var $styledSelectBtn = $styledSelect.find('.styledSelectBtn');
@@ -162,6 +164,31 @@
             // $list.hide();
             /* alert($this.val()); Uncomment this for demonstration! */
         });
+	    
+	$styledSelect.on("keydown", function(e){
+	      if(window.event) {                    
+		key = e.keyCode;
+	      } else if(e.which){                  
+		key = e.which;
+	      }
+	      // debugger;
+	      if(key < 49 || key > 90) return false;
+	      var char = String.fromCharCode(key);
+
+	      var regex = new RegExp("^" + char + "(.)*", ['i']);
+
+	      var $elements = $listItems.filter(function () {
+		return regex.test($(this).text()); 
+	      });
+
+	      if($elements[0]){
+
+		$list.animate({ scrollTop: $($listItems[0]).position().top }, 0);
+
+		$list.animate({ scrollTop: $($elements[0]).position().top }, 0);
+	      }
+	      return false;
+	    })
 
         // Hides the unordered list when clicking outside of it
         $(document).click(function () {
