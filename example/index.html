@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Custom form usage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../customForm.css" rel="stylesheet">
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<link href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+  <style>
+    form>div{
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div><input type="checkbox" name="ch" value="item 1"/> <label>item 1</label></div>
+    <div><input type="checkbox" name="ch" value="item 2"/> <label>item 2</label></div>
+    <div><input type="radio" checked name="r" value="item 1"/> <label>item 1</label></div>
+    <div><input type="radio" name="r" value="item 2"/> <label>item 2</label></div>
+    <div><input type="file" /></div>
+    <div>
+      <select>
+        <option>option 1</option>
+        <option>option 2</option>
+        <option>option 3</option>
+        <option>option 4</option>
+      </select>
+    </div>
+  </form>
+  <script type="text/javascript" src="../customForm.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

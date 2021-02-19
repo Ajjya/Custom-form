@@ -1,0 +1,27 @@
+{
+  "name": "ajjya-custom-form",
+  "version": "1.0.1",
+  "description": "Pure javascript input stylerinput styler",
+  "main": "customForm.js",
+  "sass": "customForm.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajjya/Custom-form.git"
+  },
+  "keywords": [
+    "css",
+    "javascript",
+    "input",
+    "form",
+    "styler"
+  ],
+  "author": "Vladyslava Prykhodko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ajjya/Custom-form/issues"
+  },
+  "homepage": "https://github.com/Ajjya/Custom-form#readme"
+}
