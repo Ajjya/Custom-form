@@ -88,7 +88,7 @@
 		if(this.element.checked){
 			pseudoel.classList.add("custom-radio-ch");
 		} else {
-			pseudoel.classList.add("custom-radio-radio_unch");
+			pseudoel.classList.add("custom-radio-unch");
 		}
 
 		this.element.after(pseudoel);

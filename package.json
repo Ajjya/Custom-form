@@ -1,6 +1,6 @@
 {
   "name": "ajjya-custom-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pure javascript input stylerinput styler",
   "main": "customForm.js",
   "sass": "customForm.scss",
