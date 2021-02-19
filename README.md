@@ -5,12 +5,12 @@
 * [Download the latest release](https://github.com/Ajjya/Custom-form/archive/master.zip)
 * Clone the repository: git clone [Clone](https://github.com/Ajjya/Custom-form.git)
 
-In the <head> tag add:
+In the head tag add:
 ```html
 	<link href="path-to-library/style.min.css" rel="stylesheet">
 ```
 
-Before your closing <body> tag add:
+Before your closing body tag add:
 ```html
   <script type="text/javascript" src="path-to-library/polyfill.min.js"></script>
   <script type="text/javascript" src="path-to-library/customForm.js"></script>
