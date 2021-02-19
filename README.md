@@ -12,6 +12,7 @@ In the <head> tag add:
 
 Before your closing <body> tag add:
 ```html
+  <script type="text/javascript" src="path-to-library/polyfill.min.js"></script>
   <script type="text/javascript" src="path-to-library/customForm.js"></script>
 ```
 Or by npm/yarn
