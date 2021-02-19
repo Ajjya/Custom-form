@@ -36,7 +36,7 @@ Or scss file
   @import 'node_modules/ajjya-custom-form/customForm';
 ```
 
-###Usage
+### Usage
 Then you can use library in next way:
 ```
   document.addEventListener('DOMContentLoaded', function () {
